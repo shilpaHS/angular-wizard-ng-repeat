@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="angular-wizard.css">
+  <script src="angular.js"></script>
+  <script src="lodash.min.js"></script>
+  <script src="angularjs-wizard.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body ng-app="myApp">
+  <h2>A simple angular wizard Example with ng-repeat</h2>
+  <div ng-controller="WizardCtrl">
+  <wizard on-finish="finishedWizard()" on-cancel="cancelledWizard()"> 
+    <wz-step wz-title="{{step}}" ng-repeat="step in stepArray track by $index">
+        <h1>This is the first step</h1>
+        <p>Here you can use whatever you want. You can use other directives, binding, etc.</p>
+        <input type="submit" wz-next value="next" />
+        <input ng-if="$index>0" type="submit" wz-previous value="back" />
+      
+    </wz-step>
+</wizard>
+  </div>
+</body>
+
+</html>
